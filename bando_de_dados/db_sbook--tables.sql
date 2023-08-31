@@ -1,4 +1,4 @@
--- drop database if exists db_sbook;
+drop database if exists db_sbook;
 
 create database db_sbook;
 
@@ -11,7 +11,7 @@ create table tbl_endereco(
     bairro varchar(100) not null,
     cidade varchar(100) not null,
     estado varchar(50) not null,
-    cep varchar(8),
+    cep varchar(10),
     
     unique index (id)
 );
@@ -21,10 +21,15 @@ create table tbl_usuario(
 	id int primary key auto_increment not null,
     nome varchar(60) not null,
     data_nascimento date not null,
-    data_criacao datetime not null, -- é a data e hora da criação da conta do usuário.
+    data_criacao datetime not null default current_timestamp, -- é a data e hora da criação da conta do usuário.
     email varchar(255) not null,
     senha varchar(256) not null,
     foto varchar(5000) not null default "https://www.seekpng.com/png/detail/41-410093_circled-user-icon-user-profile-icon-png.png",
+    id_endereco int not null,
+    
+    constraint FK_Endereco_Usuario
+    foreign key (id_endereco)
+    references tbl_endereco(id),
     
     unique index (id)
 );
