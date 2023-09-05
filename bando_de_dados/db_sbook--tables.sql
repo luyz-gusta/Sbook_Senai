@@ -22,6 +22,7 @@ create table tbl_usuario(
     nome varchar(60) not null,
     data_nascimento date not null,
     data_criacao datetime not null default current_timestamp, -- é a data e hora da criação da conta do usuário.
+    cpf varchar(18) not null,
     email varchar(255) not null,
     senha varchar(256) not null,
     foto varchar(5000) not null default "https://www.seekpng.com/png/detail/41-410093_circled-user-icon-user-profile-icon-png.png",
