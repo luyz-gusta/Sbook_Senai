@@ -22,7 +22,7 @@ call sp_inserir_endereco_usuario(
     "Gilson",
     "123-456-789-23",
     "1985-04-20",
-    "gislon@gmail.com",
+    "gilson@gmail.com",
     "89224002"
 );
 

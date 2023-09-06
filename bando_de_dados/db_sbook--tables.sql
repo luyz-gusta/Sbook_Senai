@@ -1,4 +1,4 @@
--- drop database if exists db_sbook;
+drop database if exists db_sbook;
 
 create database db_sbook;
 
@@ -25,6 +25,8 @@ create table tbl_usuario(
     cpf varchar(18) not null,
     email varchar(255) not null,
     senha varchar(256) not null,
+    senha_reset_token int,
+    senha_reset_expiracao datetime,
     status bit default 1 not null,
     foto varchar(5000) not null default "https://www.seekpng.com/png/detail/41-410093_circled-user-icon-user-profile-icon-png.png",
     id_endereco int not null,
