@@ -1,4 +1,4 @@
-drop database if exists db_sbook;
+-- drop database if exists db_sbook;
 
 create database db_sbook;
 
@@ -25,6 +25,7 @@ create table tbl_usuario(
     cpf varchar(18) not null,
     email varchar(255) not null,
     senha varchar(256) not null,
+    status bit default 1 not null,
     foto varchar(5000) not null default "https://www.seekpng.com/png/detail/41-410093_circled-user-icon-user-profile-icon-png.png",
     id_endereco int not null,
     
@@ -38,12 +39,16 @@ create table tbl_usuario(
 #TBL_AVALIAÇÃO
 create table tbl_avaliacao(
 	id int primary key auto_increment not null,
-    id_usuario int not null,
+    id_usuario_avaliador int not null,
+    id_usuario_avaliado int not null,
     valor int not null,
-    comentario varchar(400),
     
-    constraint FK_Usuario_Avaliacao
-    foreign key (id_usuario)
+    constraint FK_UsuarioAvaliado_Avaliacao
+    foreign key (id_usuario_avaliado)
+    references tbl_usuario(id),
+    
+    constraint FK_UsuarioAvaliador_Avaliacao
+    foreign key (id_usuario_avaliador)
     references tbl_usuario(id),
     
     unique index (id)
