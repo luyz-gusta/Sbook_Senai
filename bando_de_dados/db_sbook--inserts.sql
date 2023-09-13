@@ -10,8 +10,8 @@ call sp_inserir_endereco_usuario(
     "Luiz Gustavo",
     "123-456-789-23",
     "2006-02-15",
-    "gustavo@gmail.com",
-    "40022298"
+    "luizgustavo.sp2020@gmail.com",
+    "11940022298"
 );
 call sp_inserir_endereco_usuario(
 	"Rua Elton Silva",
@@ -23,7 +23,7 @@ call sp_inserir_endereco_usuario(
     "123-456-789-23",
     "1985-04-20",
     "gilson@gmail.com",
-    "89224002"
+    "11989224002"
 );
 
 # Estado Livro
@@ -32,17 +32,11 @@ insert into tbl_estado_livro(estado)values("Novo"), ("Seminovo"), ("Usado");
 # Avaliação
 # insert into tbl_avaliacao (id_usuario, valor, comentario) values (2, 2, null), (1, 5);
 
-# Idioma
-insert into tbl_idioma(nome) values ("Português"), ("Inglês"), ("Alemão"), ("Coreano"), ("Japonês");
-
 # Editora
 insert into tbl_editora (nome) values ("Act. Editora"), ("ArtNexus"), ("Banca Tatuí"), ("BEĨ"), ("Cobogó"), ("Desapê");
 
 # Autor
 insert into tbl_autor(nome) values ("J.K Rolling"), ("Stephanke Myers"), ("David Goggins"), ("Donald Trump"), ("Gabriel Gomes");
-
-# Genero
-insert into tbl_genero (nome) values ("Ação"), ("Suspense"), ("Romance"), ("Terror");
 
 # Anuncio
 insert into tbl_anuncio(nome,
@@ -75,7 +69,7 @@ insert into tbl_usuario_anuncio(id_usuario, id_anuncio) values (2, 1);
 
 insert into tbl_anuncio_tipo_anuncio(id_anuncio, id_tipo_anuncio) values (1, 2);
 
-insert into tbl_usuario_genero(id_genero, id_usuario) values (1, 1);
+insert into tbl_usuario_genero(id_genero, id_usuario) values (1, 1), (2,1), (3,1), (1,2), (2,2);
 
 insert into tbl_anuncio_genero (id_anuncio, id_genero) values (1, 2);
 
