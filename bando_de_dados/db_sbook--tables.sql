@@ -1,8 +1,10 @@
-drop database if exists db_sbook;
+-- drop database if exists db_sbook;
 
 create database db_sbook;
 
 use db_sbook;
+
+SET @@time_zone = '-3:00';
 
 #TBL_ENDEREÇO
 create table tbl_endereco(
@@ -12,6 +14,16 @@ create table tbl_endereco(
     cidade varchar(100) not null,
     estado varchar(50) not null,
     cep varchar(10),
+    
+    unique index (id)
+);
+
+#TBL_USUARIO_TEMPORARIO
+create table tbl_usuario_temporario(
+	id int primary key auto_increment not null,
+	email varchar(255) not null,
+    token int not null,
+    token_expiress datetime not null,
     
     unique index (id)
 );
@@ -108,13 +120,13 @@ create table tbl_editora(
 create table tbl_anuncio(
 	id int primary key auto_increment not null,
     nome varchar(200) not null,
-    numero_paginas int not null,
+    numero_paginas int,
     ano_lancamento year not null,
     descricao text not null,
     data_criacao datetime not null, -- é a data e hora de criação do anúncio.
     status_anuncio bit not null default 1, -- status 1 significa que o anúncio ainda está ativo, e 0 significa que foi encerrao, e não excluido.
     edicao varchar(100), -- edição não é tabela por causa que para cada livro existe tipos de edições diferente.
-    isbn int,
+    isbn double,
     preco decimal(6,2), -- preço só é obrigatório quando for venda.
     
     id_usuario int not null,
