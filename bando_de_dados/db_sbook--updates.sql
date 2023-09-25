@@ -11,4 +11,6 @@ call sp_update_endereco_usuario(
     'Nome teste update',
     '2005-05-25',
     '40028922'
-)
+);
+
+update tbl_usuario set senha_reset_expiracao = null where id = 1

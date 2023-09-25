@@ -125,7 +125,7 @@ insert into tbl_anuncio(nome,
 insert into tbl_anuncio_genero (id_anuncio, id_genero) values (1, 16), (1, 26),(2, 7), (2,12), (3,7), (3,12);
 insert into tbl_anuncio_tipo_anuncio(id_anuncio, id_tipo_anuncio) values (1,2), (1,3), (2,1), (3,3);
 insert into tbl_anuncio_autor(id_autor, id_anuncio) values (6,1), (7, 2),(7, 3);
-insert into tbl_usuario_anuncio(id_usuario, id_anuncio) values (1, 3), (2, 1), (3,1), (3,2);
+insert into tbl_usuario_anuncio_favorito(id_usuario, id_anuncio) values (1, 3), (2, 1), (3,1), (3,2);
 insert into tbl_foto(id_anuncio, foto) values 
 (1, 'https://m.media-amazon.com/images/I/919dh4AX2hL._SL1500_.jpg'),
 (2, 'https://m.media-amazon.com/images/I/715afDdgKfL._SL1500_.jpg'),
