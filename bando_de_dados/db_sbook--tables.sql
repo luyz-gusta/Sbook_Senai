@@ -13,7 +13,7 @@ create table tbl_endereco(
     bairro varchar(100) not null,
     cidade varchar(100) not null,
     estado varchar(50) not null,
-    cep varchar(10),
+    cep varchar(10) not null,
     
     unique index (id)
 );

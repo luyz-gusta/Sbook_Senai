@@ -74,7 +74,7 @@ DELIMITER ;
 
 ########## PROCEDURE PARA UPDATE #########
 
-# Endereco -> Usuario
+# Endereco -> Usuario //Muryllo Boroquinha
 DELIMITER //
 create procedure sp_update_endereco_usuario(
 	id_usuario int,

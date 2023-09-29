@@ -1,5 +1,9 @@
 use db_sbook;
 
+select * from tbl_usuario;
+
+show tables;
+
 # Usuário
 select 
 	usuario.id as id_usuario,
@@ -80,7 +84,7 @@ from tbl_anuncio as anuncio
 		on tbl_anuncio_genero.id_anuncio = anuncio.id
 	inner join tbl_genero as genero
 		on genero.id = tbl_anuncio_genero.id_genero
-where genero.id = 7;
+where anuncio.id_usuario = 4;
 
 select * from tbl_genero;
 
@@ -108,6 +112,39 @@ where tbl_anuncio_autor.id_anuncio = 2;
 
 
 select * from tbl_usuario_temporario;
+
+select 
+    anuncio.id, 
+    anuncio.nome, 
+    anuncio.ano_lancamento,
+    date_format(anuncio.data_criacao, '%d-%m-%Y %H:%i') as data_criacao,
+    anuncio.status_anuncio,
+    anuncio.edicao,
+    anuncio.preco,
+    anuncio.descricao,
+    anuncio.status_anuncio,
+    anuncio.numero_paginas,
+    anuncio.id_estado_livro,
+    estado_livro.estado as estado_livro,
+    anuncio.id_idioma,
+    idioma.nome as nome_idioma,
+    anuncio.id_editora,
+    editora.nome as nome_editora,
+    foto.foto
+    from tbl_anuncio as anuncio
+        inner join tbl_foto as foto
+            on foto.id_anuncio = anuncio.id
+    	inner join tbl_usuario as usuario
+	    	on usuario.id = anuncio.id_usuario
+	    inner join tbl_endereco as endereco 
+    		on endereco.id = usuario.id_endereco
+	    inner join tbl_estado_livro as estado_livro
+		    on estado_livro.id = anuncio.id_estado_livro
+	    inner join tbl_idioma as idioma
+    		on anuncio.id_idioma = idioma.id
+	    inner join tbl_editora as editora
+		    on editora.id = anuncio.id_editora
+    where anuncio.id_usuario = 1
 	
     
 
