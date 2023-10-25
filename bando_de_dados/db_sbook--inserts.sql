@@ -18,7 +18,7 @@ call sp_inserir_endereco_usuario(
     "Centro",
     "Jandira",
     "São Paulo",
-    "",
+    "06420-230",
     "Thiago",
     "123-456-789-23",
     "1985-04-20",
@@ -30,7 +30,7 @@ call sp_inserir_endereco_usuario(
     "Vila São Nicolau",
     "Jandira",
     "São Paulo",
-    "",
+    "06420-230",
     "Bianco",
     "123-458-789-23",
     "2005-08-11",
@@ -137,6 +137,4 @@ insert into tbl_grupo_interesse(nome, data_criacao, descricao) values ("Amantes 
 insert into tbl_tipo_usuario(tipo) values("Administrador"), ("Participante");
 insert into tbl_usuario_grupo_interesse_tipo_usuario(id_usuario, id_grupo_interesse, id_tipo_usuario) values (2, 1, 2);
 insert into tbl_anuncio_grupo_interesse(id_anuncio, id_grupo_interesse) values (1,1);
-
-
 

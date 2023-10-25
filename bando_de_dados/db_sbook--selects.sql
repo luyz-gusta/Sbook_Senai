@@ -144,7 +144,7 @@ select
     		on anuncio.id_idioma = idioma.id
 	    inner join tbl_editora as editora
 		    on editora.id = anuncio.id_editora
-    where anuncio.id_usuario = 1
+    where anuncio.id_usuario = 1;
 	
     
-
+select tbl_autor.id, tbl_autor.nome from tbl_autor;

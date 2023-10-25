@@ -85,8 +85,7 @@ create procedure sp_update_endereco_usuario(
     estado varchar(50),
     cep varchar(10),
     nome varchar(60),
-    data_nascimento date,
-    senha varchar(256)
+    data_nascimento date
 )
 begin
     update tbl_endereco as endereco set 
@@ -99,12 +98,10 @@ begin
         
 	update tbl_usuario as usuario set
 		usuario.nome = nome,
-        usuario.data_nascimento = data_nascimento,
-        usuario.senha = senha
+        usuario.data_nascimento = data_nascimento
     where usuario.id = id_usuario;
 end //
 DELIMITER ;
 
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- ---- -- -- -- --
-
 
