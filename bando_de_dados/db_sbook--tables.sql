@@ -71,23 +71,11 @@ create table tbl_avaliacao(
 #TBL_CHAT
 create table tbl_chat(
 	id int primary key not null,
-	id_mongo varchar(255) primary key not null,
-    
-    unique index (id),
-    unique index (id_mongo)
-);
-
-#TBL_CHAT -- TBL_USUARIO
-create table tbl_chat_usuario(
-	id int primary key auto_increment not null,
-    id_mongo varchar(255) not null,
+    status_usuario bit default 1 not null,
+	id_mongo varchar(255) not null,
     id_usuario int not null,
     
-	constraint FK_Mongo_ChatUsuario
-    foreign key (id_mongo)
-    references tbl_chat(id_mongo),
-    
-    constraint FK_Usuario_ChatUsuario
+    constraint FK_Usuario_Chat
     foreign key (id_usuario)
     references tbl_usuario(id),
     
@@ -335,10 +323,5 @@ create table tbl_anuncio_grupo_interesse(
     unique index (id)
 );
 
-select * from tbl_chat;
-select * from tbl_chat_usuario;
-desc tbl_chat;
 
-delete from tbl_chat;
-delete from tbl_chat_usuario;
 
