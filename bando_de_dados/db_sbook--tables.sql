@@ -4,8 +4,6 @@ create database db_sbook;
 
 use db_sbook;
 
-SET @@time_zone = '-3:00';
-
 #TBL_ENDEREÇO
 create table tbl_endereco(
 	id int primary key auto_increment not null,

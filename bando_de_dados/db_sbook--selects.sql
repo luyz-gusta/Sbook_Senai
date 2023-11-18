@@ -35,8 +35,6 @@ select usuario_genero.id as id_genero_preferido_usuario ,genero.id as id_genero 
 		    on usuario.id = usuario_genero.id_usuario
     where usuario.id = 1 order by usuario_genero.id desc limit 1;
 
-delete from tbl_usuario_genero where id = 5;
-
 select * from tbl_genero;
 
 select usuario_genero.id as id_genero_preferido_usuario ,genero.id as id_genero ,genero.nome as nome_genero from tbl_genero as genero
@@ -111,7 +109,8 @@ from tbl_autor as autor
 where tbl_anuncio_autor.id_anuncio = 2;
 
 
-select * from tbl_usuario_temporario;
+select * from tbl_anuncio;
+
 
 select 
     anuncio.id, 
@@ -129,8 +128,7 @@ select
     anuncio.id_idioma,
     idioma.nome as nome_idioma,
     anuncio.id_editora,
-    editora.nome as nome_editora,
-    foto.foto
+    editora.nome as nome_editora
     from tbl_anuncio as anuncio
         inner join tbl_foto as foto
             on foto.id_anuncio = anuncio.id
@@ -147,4 +145,27 @@ select
     where anuncio.id_usuario = 1;
 	
     
-select tbl_autor.id, tbl_autor.nome from tbl_autor;
+select * from tbl_anuncio_autor;
+
+use db_sbook;
+
+select
+        anuncio.id,
+        anuncio.nome,
+        anuncio.ano_lancamento,
+        date_format(anuncio.data_criacao, '%d-%m-%Y %H:%i') as data_criacao,
+        anuncio.status_anuncio,
+        anuncio.preco,
+        anuncio.id_usuario,
+        endereco.estado,
+        endereco.cidade,
+        endereco.bairro,
+        anuncio.id_estado_livro,
+        estado_livro.estado as estado_livro
+    from tbl_anuncio as anuncio
+        inner join tbl_endereco as endereco 
+    		on endereco.id = anuncio.id_endereco
+	    inner join tbl_estado_livro as estado_livro
+		    on estado_livro.id = anuncio.id_estado_livro
+    where anuncio.status_anuncio = true
+    order by anuncio.id asc
